@@ -3,42 +3,39 @@
 .hero-section-root {
   @include container;
   padding-top: rem(75);
-  
 
-  @include media(tablet){
+  @include media(tablet) {
     width: 100%;
     padding-bottom: rem(71);
   }
 
-  .logo-container{
-    @include media(tablet){
+  .logo-container {
+    @include media(tablet) {
       @include container;
     }
   }
 
-  .logo{
-    @include media(mobile){
+  .logo {
+    @include media(mobile) {
       @include size(rem(100), auto);
     }
   }
 
-  .content-and-background{
+  .content-and-background {
     margin-top: rem(136);
-    @include media(tablet){
+    @include media(tablet) {
       margin-top: rem(32);
       display: flex;
       flex-direction: column;
     }
   }
 
-  .content {   
-    width: rem(445);   
-    @include media(tablet){
+  .content {
+    width: rem(445);
+    @include media(tablet) {
       @include container;
-    } 
+    }
   }
-
-  
 
   .title {
     font-weight: 600;
@@ -57,13 +54,13 @@
       display: block;
     }
 
-    @include media(tablet){
+    @include media(tablet) {
       font-size: rem(56);
       text-align: center;
       margin: rem(64) auto 0 auto;
     }
 
-    @include media(mobile){
+    @include media(mobile) {
       font-size: rem(40);
     }
   }
@@ -75,14 +72,14 @@
     font-size: rem(16);
     color: $desaturated-red;
 
-    @include media(tablet){
+    @include media(tablet) {
       text-align: center;
       max-width: 60ch;
       margin: rem(16) auto 0 auto;
     }
 
-    @include media(mobile){
-      font-size: rem(14);      
+    @include media(mobile) {
+      font-size: rem(14);
     }
   }
 }
@@ -95,7 +92,7 @@
   margin-top: rem(40);
   position: relative;
 
-  @include media(tablet){
+  @include media(tablet) {
     margin-top: rem(32);
   }
 
@@ -108,7 +105,7 @@
     font-size: rem(16);
     color: $dark-grayish-red;
 
-    @include media(mobile){
+    @include media(mobile) {
       font-size: rem(14);
       height: $height-mobile;
       padding-left: rem(24);
@@ -128,7 +125,7 @@
     box-shadow: 0px 15px 20px rgba(198, 110, 110, 0.247569);
     overflow: hidden;
 
-    @include media(mobile){
+    @include media(mobile) {
       @include size(rem(64), $height-mobile);
     }
 
@@ -150,18 +147,18 @@
     line-height: 2.15;
     color: $soft-red;
 
-    @include media(mobile){
+    @include media(mobile) {
       margin-left: rem(24);
     }
   }
 
-  .icon-error{
+  .icon-error {
     position: absolute;
     top: rem(16);
     right: rem(116);
     z-index: 3;
 
-    @include media(mobile){
+    @include media(mobile) {
       top: rem(12);
       right: rem(72);
     }
@@ -170,10 +167,9 @@
 
 //Background
 .hero-section-root .background {
-
-  
   .pattern {
     @include size(57.64vw, rem(800));
+    min-height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
@@ -185,12 +181,14 @@
 
     @include media(tablet) {
       display: none;
+      min-height: unset;
     }
   }
 
   .hero-bg {
     position: absolute;
     @include size(42.36vw, rem(800));
+    min-height: 100vh;
     top: 0;
     right: 0;
     background-image: url(/assets/hero-desktop.jpg);
@@ -198,10 +196,11 @@
     background-size: cover;
     background-repeat: no-repeat;
 
-    @include media(tablet){  
-      position: static;    
+    @include media(tablet) {
+      position: static;
       background-image: url(/assets/hero-mobile.jpg);
       @include size(100%, 0);
+      min-height: unset;
       padding-bottom: 66.5%;
     }
   }
