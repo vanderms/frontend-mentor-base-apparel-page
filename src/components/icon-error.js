@@ -5,6 +5,7 @@ export default function IconError() {
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
+      aria-label='error icon'
     >
       <g fill="none" fillRule="evenodd">
         <circle cx="12" cy="12" r="12" fill="#F96464" />
