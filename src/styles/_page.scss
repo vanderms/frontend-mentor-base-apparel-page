@@ -1,0 +1,208 @@
+@use './mixins' as *;
+
+.hero-section-root {
+  @include container;
+  padding-top: rem(75);
+  
+
+  @include media(tablet){
+    width: 100%;
+    padding-bottom: rem(71);
+  }
+
+  .logo-container{
+    @include media(tablet){
+      @include container;
+    }
+  }
+
+  .logo{
+    @include media(mobile){
+      @include size(rem(100), auto);
+    }
+  }
+
+  .content-and-background{
+    margin-top: rem(136);
+    @include media(tablet){
+      margin-top: rem(32);
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .content {   
+    width: rem(445);   
+    @include media(tablet){
+      @include container;
+    } 
+  }
+
+  
+
+  .title {
+    font-weight: 600;
+    font-size: rem(64);
+    line-height: 1.1;
+    letter-spacing: 17.32px;
+    color: $dark-grayish-red;
+    width: 10ch;
+    strong {
+      color: $desaturated-red;
+      font-weight: 300;
+      display: block;
+      line-height: 1;
+    }
+    span {
+      display: block;
+    }
+
+    @include media(tablet){
+      font-size: rem(56);
+      text-align: center;
+      margin: rem(64) auto 0 auto;
+    }
+
+    @include media(mobile){
+      font-size: rem(40);
+    }
+  }
+
+  .description {
+    margin-top: rem(18);
+    line-height: 1.75;
+    font-weight: 400;
+    font-size: rem(16);
+    color: $desaturated-red;
+
+    @include media(tablet){
+      text-align: center;
+      max-width: 60ch;
+      margin: rem(16) auto 0 auto;
+    }
+
+    @include media(mobile){
+      font-size: rem(14);      
+    }
+  }
+}
+
+//Form
+.hero-section-root .form {
+  $height: rem(56);
+  $height-mobile: rem(48);
+
+  margin-top: rem(40);
+  position: relative;
+
+  @include media(tablet){
+    margin-top: rem(32);
+  }
+
+  input {
+    @include size(100%, $height);
+    border-radius: rem(28);
+    border: 1px solid $desaturated-red-opaque;
+    padding-left: rem(32);
+    padding-right: rem(172);
+    font-size: rem(16);
+    color: $dark-grayish-red;
+
+    @include media(mobile){
+      font-size: rem(14);
+      height: $height-mobile;
+      padding-left: rem(24);
+      padding-right: rem(120);
+    }
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include size(rem(100), $height);
+    border-radius: rem(28);
+    background: linear-gradient(135deg, #f8bfbf 0%, #ee8b8b 100%);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 15px 20px rgba(198, 110, 110, 0.247569);
+    overflow: hidden;
+
+    @include media(mobile){
+      @include size(rem(64), $height-mobile);
+    }
+
+    &:hover {
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0 0 0 0;
+        background-color: white;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .error-message {
+    margin-top: rem(4);
+    margin-left: rem(32);
+    font-size: rem(13);
+    line-height: 2.15;
+    color: $soft-red;
+
+    @include media(mobile){
+      margin-left: rem(24);
+    }
+  }
+
+  .icon-error{
+    position: absolute;
+    top: rem(16);
+    right: rem(116);
+    z-index: 3;
+
+    @include media(mobile){
+      top: rem(12);
+      right: rem(72);
+    }
+  }
+}
+
+//Background
+.hero-section-root .background {
+
+  
+  .pattern {
+    @include size(57.64vw, rem(800));
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(/assets/bg-pattern-desktop.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+
+    @include media(tablet) {
+      display: none;
+    }
+  }
+
+  .hero-bg {
+    position: absolute;
+    @include size(42.36vw, rem(800));
+    top: 0;
+    right: 0;
+    background-image: url(/assets/hero-desktop.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include media(tablet){  
+      position: static;    
+      background-image: url(/assets/hero-mobile.jpg);
+      @include size(100%, 0);
+      padding-bottom: 66.5%;
+    }
+  }
+}
